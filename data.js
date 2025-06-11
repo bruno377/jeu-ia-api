@@ -1,6 +1,7 @@
 // =======================================================
 // FICHIER DE DONNÉES DU JEU
-// Modifiez ce fichier pour ajouter/modifier des mots et catégories.
+// Version complète avec 12 mots par catégorie.
+// 'display' = ce qui est affiché. 'speech' = ce qui est prononcé.
 // =======================================================
 
 const data = {
@@ -11,52 +12,46 @@ const data = {
     },
     items: {
         "Fruits": [
-            // Mots existants
-            { names: { fr: "Pomme", en: "Apple", mg: "Paume" }, image: "images/pomme.png" },
-            { names: { fr: "Banane", en: "Banana", mg: "Akoundre" }, image: "images/banane.png" },
-            // 10 Nouveaux Fruits
-            { names: { fr: "Fraise", en: "Strawberry", mg: "Fraize" }, image: "images/fraise.png" },
-            { names: { fr: "Orange", en: "Orange", mg: "Vaussarr" }, image: "images/orange.png" },
-            { names: { fr: "Citron", en: "Lemon", mg: "Vaussarr makiiiirann" }, image: "images/citron.png" },
-            { names: { fr: "Cerise", en: "Cherry", mg: "Cérise" }, image: "images/cerise.png" },
-            { names: { fr: "Raisin", en: "Grapes", mg: "Voloubk" }, image: "images/raisin.png" },
-            { names: { fr: "Pêche", en: "Peach", mg: "Paich" }, image: "images/peche.png" },
-            { names: { fr: "Poire", en: "Pear", mg: "Pouarr" }, image: "images/poire.png" },
-            { names: { fr: "Ananas", en: "Pineapple", mg: "Mananach" }, image: "images/ananas.png" },
-            { names: { fr: "Melon", en: "Melon", mg: "Melon" }, image: "images/melon.png" },
-            { names: { fr: "Pastèque", en: "Watermelon", mg: "Pastèk" }, image: "images/pasteque.png" }
+            { names: { fr: { display: "Pomme", speech: "Pomme" }, en: { display: "Apple", speech: "Apple" }, mg: { display: "Paoma", speech: "Paume" } }, image: "images/pomme.png" },
+            { names: { fr: { display: "Banane", speech: "Banane" }, en: { display: "Banana", speech: "Banana" }, mg: { display: "Akondro", speech: "Akoundre" } }, image: "images/banane.png" },
+            { names: { fr: { display: "Fraise", speech: "Fraise" }, en: { display: "Strawberry", speech: "Strawberry" }, mg: { display: "Frezy", speech: "Fraize" } }, image: "images/fraise.png" },
+            { names: { fr: { display: "Orange", speech: "Orange" }, en: { display: "Orange", speech: "Orange" }, mg: { display: "Voasary", speech: "Vaussarr" } }, image: "images/orange.png" },
+            { names: { fr: { display: "Citron", speech: "Citron" }, en: { display: "Lemon", speech: "Lemon" }, mg: { display: "Voasary makirana", speech: "Vaussarr makiiiirann" } }, image: "images/citron.png" },
+            { names: { fr: { display: "Cerise", speech: "Cerise" }, en: { display: "Cherry", speech: "Cherry" }, mg: { display: "Serizy", speech: "Cérise" } }, image: "images/cerise.png" },
+            { names: { fr: { display: "Raisin", speech: "Raisin" }, en: { display: "Grapes", speech: "Grapes" }, mg: { display: "Voaloboka", speech: "Voloubk" } }, image: "images/raisin.png" },
+            { names: { fr: { display: "Pêche", speech: "Pêche" }, en: { display: "Peach", speech: "Peach" }, mg: { display: "Pesy", speech: "Pa-iche" } }, image: "images/peche.png" },
+            { names: { fr: { display: "Poire", speech: "Poire" }, en: { display: "Pear", speech: "Pear" }, mg: { display: "Poara", speech: "Pouarr" } }, image: "images/poire.png" },
+            { names: { fr: { display: "Ananas", speech: "Ananas" }, en: { display: "Pineapple", speech: "Pineapple" }, mg: { display: "Mananasy", speech: "Mananach" } }, image: "images/ananas.png" },
+            { names: { fr: { display: "Melon", speech: "Melon" }, en: { display: "Melon", speech: "Melon" }, mg: { display: "Melonina", speech: "Melon" } }, image: "images/melon.png" },
+            { names: { fr: { display: "Pastèque", speech: "Pastèque" }, en: { display: "Watermelon", speech: "Watermelon" }, mg: { display: "Pasteky", speech: "Pastèk" } }, image: "images/pasteque.png" }
         ],
         "Animaux": [
-            // Mots existants
-            { names: { fr: "Chat", en: "Cat", mg: "Saque" }, image: "images/chat.png" },
-            { names: { fr: "Chien", en: "Dog", mg: "Alique" }, image: "images/chien.png" },
-            // 10 Nouveaux Animaux
-            { names: { fr: "Cheval", en: "Horse", mg: "Sovalle" }, image: "images/cheval.png" },
-            { names: { fr: "Vache", en: "Cow", mg: "Oumbe" }, image: "images/vache.png" },
-            { names: { fr: "Lion", en: "Lion", mg: "Lioune" }, image: "images/lion.png" },
-            { names: { fr: "Mouton", en: "Sheep", mg: "Oundrr" }, image: "images/mouton.png" },
-            { names: { fr: "Cochon", en: "Pig", mg: "Kishou" }, image: "images/cochon.png" },
-            { names: { fr: "Poule", en: "Hen", mg: "Akouhou" }, image: "images/poule.png" },
-            { names: { fr: "Éléphant", en: "Elephant", mg: "Éléfant" }, image: "images/elephant.png" },
-            { names: { fr: "Girafe", en: "Giraffe", mg: "Jirafe" }, image: "images/girafe.png" },
-            { names: { fr: "Singe", en: "Monkey", mg: "Guidrou" }, image: "images/singe.png" },
-            { names: { fr: "Poisson", en: "Fish", mg: "troundrou" }, image: "images/poisson.png" }
+            { names: { fr: { display: "Chat", speech: "Chat" }, en: { display: "Cat", speech: "Cat" }, mg: { display: "Saka", speech: "Saque" } }, image: "images/chat.png" },
+            { names: { fr: { display: "Chien", speech: "Chien" }, en: { display: "Dog", speech: "Dog" }, mg: { display: "Alika", speech: "Alique" } }, image: "images/chien.png" },
+            { names: { fr: { display: "Cheval", speech: "Cheval" }, en: { display: "Horse", speech: "Horse" }, mg: { display: "Soavaly", speech: "Sovalle" } }, image: "images/cheval.png" },
+            { names: { fr: { display: "Vache", speech: "Vache" }, en: { display: "Cow", speech: "Cow" }, mg: { display: "Omby", speech: "Oumbe" } }, image: "images/vache.png" },
+            { names: { fr: { display: "Lion", speech: "Lion" }, en: { display: "Lion", speech: "Lion" }, mg: { display: "Liona", speech: "Lioune" } }, image: "images/lion.png" },
+            { names: { fr: { display: "Mouton", speech: "Mouton" }, en: { display: "Sheep", speech: "Sheep" }, mg: { display: "Ondry", speech: "Oundrr" } }, image: "images/mouton.png" },
+            { names: { fr: { display: "Cochon", speech: "Cochon" }, en: { display: "Pig", speech: "Pig" }, mg: { display: "Kisoa", speech: "Kishou" } }, image: "images/cochon.png" },
+            { names: { fr: { display: "Poule", speech: "Poule" }, en: { display: "Hen", speech: "Hen" }, mg: { display: "Akoho", speech: "Akouhou" } }, image: "images/poule.png" },
+            { names: { fr: { display: "Éléphant", speech: "Éléphant" }, en: { display: "Elephant", speech: "Elephant" }, mg: { display: "Elefanta", speech: "Éléfant" } }, image: "images/elephant.png" },
+            { names: { fr: { display: "Girafe", speech: "Girafe" }, en: { display: "Giraffe", speech: "Giraffe" }, mg: { display: "Jirafy", speech: "Jirafe" } }, image: "images/girafe.png" },
+            { names: { fr: { display: "Singe", speech: "Singe" }, en: { display: "Monkey", speech: "Monkey" }, mg: { display: "Gidro", speech: "Guidrou" } }, image: "images/singe.png" },
+            { names: { fr: { display: "Poisson", speech: "Poisson" }, en: { display: "Fish", speech: "Fish" }, mg: { display: "Trondro", speech: "troundrou" } }, image: "images/poisson.png" }
         ],
         "Verbes": [
-            // Mots existants
-            { names: { fr: "Manger", en: "To eat", mg: "Mihinane" }, image: "images/manger.png" },
-            { names: { fr: "Courir", en: "To run", mg: "Mihazakazaka" }, image: "images/courir.png", audio: { mg: "audio/mihazakazaka.mp3" } },
-            // 10 Nouveaux Verbes
-            { names: { fr: "Jouer", en: "To play", mg: "Milalao" }, image: "images/jouer.png" },
-            { names: { fr: "Boire", en: "To drink", mg: "Missoutrrrou" }, image: "images/boire.png" },
-            { names: { fr: "Dormir", en: "To sleep", mg: "Matourre" }, image: "images/dormir.png" },
-            { names: { fr: "Lire", en: "To read", mg: "Mamaque" }, image: "images/lire.png" },
-            { names: { fr: "Écrire", en: "To write", mg: "Manourate" }, image: "images/ecrire.png" },
-            { names: { fr: "Chanter", en: "To sing", mg: "Mi-ira" }, image: "images/chanter.png" },
-            { names: { fr: "Danser", en: "To dance", mg: "Mandihy" }, image: "images/danser.png" },
-            { names: { fr: "Sauter", en: "To jump", mg: "Missott" }, image: "images/sauter.png" },
-            { names: { fr: "Regarder", en: "To watch", mg: "Midjérre" }, image: "images/regarder.png" },
-            { names: { fr: "Dessiner", en: "To draw", mg: "Manaou dessin" }, image: "images/dessiner.png" }
+            { names: { fr: { display: "Manger", speech: "Manger" }, en: { display: "To eat", speech: "To eat" }, mg: { display: "Mihinana", speech: "Mi-inann" } }, image: "images/manger.png" },
+            { names: { fr: { display: "Courir", speech: "Courir" }, en: { display: "To run", speech: "To run" }, mg: { display: "Mihazakazaka", speech: "Mihazakazaque" } }, image: "images/courir.png", audio: { mg: "audio/mihazakazaka.mp3" } },
+            { names: { fr: { display: "Jouer", speech: "Jouer" }, en: { display: "To play", speech: "To play" }, mg: { display: "Milalao", speech: "Milalao" } }, image: "images/jouer.png" },
+            { names: { fr: { display: "Boire", speech: "Boire" }, en: { display: "To drink", speech: "To drink" }, mg: { display: "Misotro", speech: "Missoutrrrou" } }, image: "images/boire.png" },
+            { names: { fr: { display: "Dormir", speech: "Dormir" }, en: { display: "To sleep", speech: "To sleep" }, mg: { display: "Matory", speech: "Matourre" } }, image: "images/dormir.png" },
+            { names: { fr: { display: "Lire", speech: "Lire" }, en: { display: "To read", speech: "To read" }, mg: { display: "Mamaky", speech: "Mamaque" } }, image: "images/lire.png" },
+            { names: { fr: { display: "Écrire", speech: "Écrire" }, en: { display: "To write", speech: "To write" }, mg: { display: "Manoratra", speech: "Manouratrr" } }, image: "images/ecrire.png" },
+            { names: { fr: { display: "Chanter", speech: "Chanter" }, en: { display: "To sing", speech: "To sing" }, mg: { display: "Mihira", speech: "Mi-irre" } }, image: "images/chanter.png" },
+            { names: { fr: { display: "Danser", speech: "Danser" }, en: { display: "To dance", speech: "To dance" }, mg: { display: "Mandihy", speech: "Mandihy" } }, image: "images/danser.png" },
+            { names: { fr: { display: "Sauter", speech: "Sauter" }, en: { display: "To jump", speech: "To jump" }, mg: { display: "Mitsambikina", speech: "Mitsambiknn" } }, image: "images/sauter.png" },
+            { names: { fr: { display: "Regarder", speech: "Regarder" }, en: { display: "To watch", speech: "To watch" }, mg: { display: "Mijery", speech: "Midjérre" } }, image: "images/regarder.png" },
+            { names: { fr: { display: "Dessiner", speech: "Dessiner" }, en: { display: "To draw", speech: "To draw" }, mg: { display: "Manao sary", speech: "Manaou sarre" } }, image: "images/dessiner.png" }
         ]
     }
 };

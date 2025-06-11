@@ -1,4 +1,4 @@
-// La constante 'data' est maintenant chargée depuis le fichier data.js
+// La constante 'data' est chargée depuis data.js
 
 let currentLanguage = 'fr';
 let currentCategory = '';
@@ -11,17 +11,26 @@ const languageSwitcherContainer = document.getElementById('language-switcher');
 const mainTitle = document.getElementById('main-title');
 const instructionText = document.getElementById('instruction-text');
 
-// --- FONCTION "SPEAK" FINALE ET HYBRIDE ---
+// --- FONCTION "SPEAK" MODIFIÉE ---
 function speak(item, langCode, cardElement) {
     if (synth.speaking) synth.cancel();
     if (currentAudio) currentAudio.pause();
     
+    // --- NOUVEAU : Cacher tous les textes des autres cartes ---
+    document.querySelectorAll('.card-word').forEach(p => p.textContent = '');
+
     cardElement.classList.add('loading');
 
+    // --- NOUVEAU : Affiche le mot à l'écran ---
+    const wordElement = cardElement.querySelector('.card-word');
+    if (wordElement) {
+        wordElement.textContent = item.names[currentLanguage].display;
+    }
+
     const speakWithPhonetics = () => {
-        const text = item.names.mg;
+        const text = item.names.mg.speech; // Utilise la version 'speech'
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'fr-FR'; // On force la voix française
+        utterance.lang = 'fr-FR';
         utterance.onend = () => cardElement.classList.remove('loading');
         utterance.onerror = (e) => {
             console.error('Erreur de synthèse vocale:', e);
@@ -30,24 +39,20 @@ function speak(item, langCode, cardElement) {
         synth.speak(utterance);
     };
 
-    // --- LOGIQUE D'AIGUILLAGE FINALE ---
     if (langCode === 'mg-MG' && item.audio && item.audio.mg) {
-        // PRIORITÉ 1 : Essayer de jouer le fichier MP3 s'il est défini
         currentAudio = new Audio(item.audio.mg);
         currentAudio.onended = () => cardElement.classList.remove('loading');
         currentAudio.onerror = () => {
-            console.warn(`MP3 non trouvé (${item.audio.mg}). Utilisation de la phonétique en secours.`);
-            speakWithPhonetics(); // Plan B : la phonétique
+            console.warn(`MP3 non trouvé. Utilisation de la phonétique.`);
+            speakWithPhonetics();
         };
         currentAudio.play();
-    } else if (langCode === 'mg-MG') {
-        // PRIORITÉ 2 : Si pas de MP3, utiliser la phonétique
-        speakWithPhonetics();
     } else {
-        // PRIORITÉ 3 : Pour les autres langues (FR, EN), utiliser la synthèse normale
-        const text = item.names[currentLanguage];
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = langCode;
+        const textToSpeak = item.names[currentLanguage].speech; // Utilise la version 'speech'
+        const effectiveLangCode = (langCode === 'mg-MG') ? 'fr-FR' : langCode;
+        
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        utterance.lang = effectiveLangCode;
         utterance.onend = () => cardElement.classList.remove('loading');
         utterance.onerror = (e) => {
             console.error('Erreur de synthèse vocale:', e);
@@ -68,10 +73,17 @@ function displayCategory(categoryName) {
     items.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('card');
+
         const img = document.createElement('img');
         img.src = item.image;
-        img.alt = item.names[currentLanguage];
+        img.alt = item.names[currentLanguage].display; // Utilise le mot correct pour l'alternative textuelle
         card.appendChild(img);
+
+        // --- NOUVEAU : Ajoute un élément <p> pour le mot ---
+        const wordText = document.createElement('p');
+        wordText.classList.add('card-word');
+        card.appendChild(wordText); // On l'ajoute à la carte
+
         gameContainer.appendChild(card);
 
         card.addEventListener('click', () => {
