@@ -19,7 +19,7 @@ const data = {
             { names: { fr: { display: "Citron", speech: "Citron" }, en: { display: "Lemon", speech: "Lemon" }, mg: { display: "Voasary makirana", speech: "Vaussarr makiiiirann" } }, image: "images/citron.png" },
             { names: { fr: { display: "Cerise", speech: "Cerise" }, en: { display: "Cherry", speech: "Cherry" }, mg: { display: "Serizy", speech: "Cérise" } }, image: "images/cerise.png" },
             { names: { fr: { display: "Raisin", speech: "Raisin" }, en: { display: "Grapes", speech: "Grapes" }, mg: { display: "Voaloboka", speech: "Voloubk" } }, image: "images/raisin.png" },
-            { names: { fr: { display: "Pêche", speech: "Pêche" }, en: { display: "Peach", speech: "Peach" }, mg: { display: "Pesy", speech: "Pa-iche" } }, image: "images/peche.png" },
+            { names: { fr: { display: "Pêche", speech: "Pêche" }, en: { display: "Peach", speech: "Peach" }, mg: { display: "Paiso", speech: "Pa-iche" } }, image: "images/peche.png" },
             { names: { fr: { display: "Poire", speech: "Poire" }, en: { display: "Pear", speech: "Pear" }, mg: { display: "Poara", speech: "Pouarr" } }, image: "images/poire.png" },
             { names: { fr: { display: "Ananas", speech: "Ananas" }, en: { display: "Pineapple", speech: "Pineapple" }, mg: { display: "Mananasy", speech: "Mananach" } }, image: "images/ananas.png" },
             { names: { fr: { display: "Melon", speech: "Melon" }, en: { display: "Melon", speech: "Melon" }, mg: { display: "Melonina", speech: "Melon" } }, image: "images/melon.png" },
